@@ -10,9 +10,9 @@ from enum import IntEnum, StrEnum
 from typing import Any, Awaitable, Callable
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
-from const import DEFAULT_CODE_PAGE
 from .base import IntegraEntity, IntegraError
 from .const import (
+    DEFAULT_CODE_PAGE,
     DEFAULT_CONN_TIMEOUT,
     DEFAULT_KEEP_ALIVE,
     DEFAULT_RESP_TIMEOUT,

@@ -7,8 +7,6 @@ import traceback
 
 from enum import IntEnum
 
-from base import IntegraTaskContextRefCnt
-
 _LOGGER = logging.getLogger( __name__ )
 
 from datetime import datetime, timedelta
@@ -18,7 +16,7 @@ from typing import Any, Callable, Awaitable
 
 from .const import DEFAULT_CONN_TIMEOUT, DEFAULT_RESP_TIMEOUT, DEFAULT_KEEP_ALIVE
 from .base import (IntegraEntity, IntegraType, IntegraBaseType, IntegraCaps, IntegraTroubles,
-                   IntegraMap, IntegraArmMode, IntegraModuleCaps, Integra1stCodeAction, IntegraDispatcher, IntegraContextRefCnt, IntegraError)
+                   IntegraMap, IntegraArmMode, IntegraModuleCaps, Integra1stCodeAction, IntegraDispatcher, IntegraContextRefCnt, IntegraError, IntegraTaskContextRefCnt)
 from .channel import IntegraChannelStats, IntegraChannel, IntegraChannelEvent
 from .channel_serial import IntegraChannelRS232
 from .channel_tcp import IntegraChannelTCP
@@ -1023,7 +1021,7 @@ class IntegraClient( IntegraEntity ):
 
     # 0x7E READ: integra version
     async def async_read_integra_version( self ) -> IntegraCmdVersionData | None:
-        response: IntegraResponse = await self._async_send_command( IntegraCommand.READ_INTEGRA_VERSION, bytes( [0x00] ) )
+        response: IntegraResponse = await self._async_send_command( IntegraCommand.READ_INTEGRA_VERSION )
         if self._check_response( response ):
             return IntegraCmdVersionData.from_bytes( response.data )
         return None
