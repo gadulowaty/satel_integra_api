@@ -1,0 +1,2071 @@
+{
+  "version": "1.24",
+  "date": "2025-03-12",
+  "lang": "pl",
+  "events": [
+    {
+      "code": 1,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Skasowanie powiadamiania telefonicznego       ",
+      "text_short": "Skasow.pow.tel. "
+    },
+    {
+      "code": 2,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Zmiana has\u0142a                                  ",
+      "text_short": "Zmiana has\u0142a    "
+    },
+    {
+      "code": 3,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmiana has\u0142a                                  ",
+      "text_short": "Zmiana has\u0142a    "
+    },
+    {
+      "code": 4,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Blokowanie/odblokowywanie wej\u015b\u0107               ",
+      "text_short": "Blokowania wej\u015b\u0107"
+    },
+    {
+      "code": 5,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Reset czujek                                  ",
+      "text_short": "Reset czujek    "
+    },
+    {
+      "code": 6,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmiana opcji                                  ",
+      "text_short": "Zmiana opcji    "
+    },
+    {
+      "code": 7,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zablokowanie dost\u0119pu serwisu                  ",
+      "text_short": "Zabl.dos.serwisu"
+    },
+    {
+      "code": 8,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Utworzenie u\u017cytkownika                        ",
+      "text_short": "Utworzenie u\u017cyt."
+    },
+    {
+      "code": 9,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Nowy u\u017cytkownik                               ",
+      "text_short": "Nowy u\u017cytkownik "
+    },
+    {
+      "code": 10,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmiana u\u017cytkownika                            ",
+      "text_short": "Zmiana u\u017cytk.   "
+    },
+    {
+      "code": 11,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmieniony u\u017cytkownik                          ",
+      "text_short": "Zmieniony u\u017cytk."
+    },
+    {
+      "code": 12,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Usuni\u0119cie u\u017cytkownika                         ",
+      "text_short": "Usuni\u0119cie u\u017cytk."
+    },
+    {
+      "code": 13,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Usuni\u0119ty u\u017cytkownik                           ",
+      "text_short": "Usuni\u0119ty u\u017cytk. "
+    },
+    {
+      "code": 14,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Odgadni\u0119cie has\u0142a u\u017cytkownika                 ",
+      "text_short": "Odgadni\u0119cie has."
+    },
+    {
+      "code": 15,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Has\u0142o u\u017cytkownika odgadni\u0119te                  ",
+      "text_short": "Has\u0142o odgadni\u0119te"
+    },
+    {
+      "code": 16,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Nowy administrator                            ",
+      "text_short": "Nowy administr. "
+    },
+    {
+      "code": 17,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmieniony administrator                       ",
+      "text_short": "Zmieniony admin."
+    },
+    {
+      "code": 18,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Usuni\u0119ty administrator                        ",
+      "text_short": "Usuni\u0119ty admin. "
+    },
+    {
+      "code": 19,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Zako\u0144czenie funkcji DWNL-RS                   ",
+      "text_short": "Zako\u0144cz. DWNL-RS"
+    },
+    {
+      "code": 20,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Uruchomienie funkcji DWNL-TEL                 ",
+      "text_short": "Uruch. DWNL-TEL "
+    },
+    {
+      "code": 21,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Test stacji monitoruj\u0105cej 1A                  ",
+      "text_short": "Test stacji 1A  "
+    },
+    {
+      "code": 22,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Test stacji monitoruj\u0105cej 1B                  ",
+      "text_short": "Test stacji 1B  "
+    },
+    {
+      "code": 23,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Test stacji monitoruj\u0105cej 2A                  ",
+      "text_short": "Test stacji 2A  "
+    },
+    {
+      "code": 24,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Test stacji monitoruj\u0105cej 2B                  ",
+      "text_short": "Test stacji 2B  "
+    },
+    {
+      "code": 26,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Odblokowanie dost\u0119pu do bankomatu             ",
+      "text_short": "Odblok.bankomatu"
+    },
+    {
+      "code": 27,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Odgadni\u0119cie has\u0142a u\u017cytkownika                 ",
+      "text_short": "Odgadni\u0119cie has."
+    },
+    {
+      "code": 28,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Has\u0142o u\u017cytkownika odgadni\u0119te                  ",
+      "text_short": "Has\u0142o odgadni\u0119te"
+    },
+    {
+      "code": 29,
+      "restore": false,
+      "long_kind": 7,
+      "short_kind": 4,
+      "text_long": "Usuni\u0119ty u\u017cytkownik czasowy                   ",
+      "text_short": "Usun.u\u017cytk.czas."
+    },
+    {
+      "code": 30,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Automatyczne zablokowanie dost\u0119pu serwisu     ",
+      "text_short": "Auto.zabl.serw. "
+    },
+    {
+      "code": 31,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Uaktualnienie firmware centrali               ",
+      "text_short": "Uaktual.firmware"
+    },
+    {
+      "code": 32,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Zapami\u0119tanie ustawie\u0144 w pami\u0119ci FLASH         ",
+      "text_short": "Zap.ust.we FLASH"
+    },
+    {
+      "code": 33,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Uruchomienie STARTER-a                        ",
+      "text_short": "Uruch. STARTER-a"
+    },
+    {
+      "code": 34,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Uruchomienie STARTER-a z ko\u0142k\u00f3w RESET         ",
+      "text_short": "STARTER z RESET "
+    },
+    {
+      "code": 36,
+      "restore": false,
+      "long_kind": 7,
+      "short_kind": 4,
+      "text_long": "Usuni\u0119ty u\u017cytkownik jednorazowy               ",
+      "text_short": "Usun.u\u017cytk.jedn."
+    },
+    {
+      "code": 37,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Podanie pierwszego has\u0142a                      ",
+      "text_short": "Pierwsze has\u0142o  "
+    },
+    {
+      "code": 38,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Skasowanie powiadamiania telefonicznego       ",
+      "text_short": "Skasow.pow.tel. "
+    },
+    {
+      "code": 39,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test czujek wibracyjnych OK                   ",
+      "text_short": "Test wibrac. OK "
+    },
+    {
+      "code": 40,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmiana prefix\u00f3w                               ",
+      "text_short": "Zmiana prefix\u00f3w "
+    },
+    {
+      "code": 41,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Zmiana czasu z zimowego na letni              ",
+      "text_short": "Zm.cz. na letni "
+    },
+    {
+      "code": 42,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Zmiana czasu z letniego na zimowy             ",
+      "text_short": "Zm.cz. na zimowy"
+    },
+    {
+      "code": 43,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Obch\u00f3d wartownika                             ",
+      "text_short": "Obch\u00f3d wart.    "
+    },
+    {
+      "code": 44,
+      "restore": false,
+      "long_kind": 5,
+      "short_kind": 1,
+      "text_long": "Koniec wa\u017cno\u015bci pierwszego has\u0142a              ",
+      "text_short": "Koniec 1go has\u0142a"
+    },
+    {
+      "code": 45,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Anulowanie pierwszego has\u0142a                   ",
+      "text_short": "Anulow.1go has\u0142a"
+    },
+    {
+      "code": 46,
+      "restore": false,
+      "long_kind": 7,
+      "short_kind": 4,
+      "text_long": "Koniec sterowania przez telefon               ",
+      "text_short": "Koniec ster.tel."
+    },
+    {
+      "code": 47,
+      "restore": false,
+      "long_kind": 10,
+      "short_kind": 4096,
+      "text_long": "Wy\u0142\u0105czenie przeka\u017anika przez telefon          ",
+      "text_short": "Wy\u0142. przek. tel."
+    },
+    {
+      "code": 48,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Koniec po\u0142\u0105czenia TCP/IP (Internet)           ",
+      "text_short": "Kn.TCP/IP Inter."
+    },
+    {
+      "code": 49,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Nieudane po\u0142\u0105czenie TCP/IP (Internet)         ",
+      "text_short": "?? TCP/IP Inter."
+    },
+    {
+      "code": 50,
+      "restore": false,
+      "long_kind": 31,
+      "short_kind": 0,
+      "text_long": "Adres IP                                      ",
+      "text_short": ""
+    },
+    {
+      "code": 51,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Uniewa\u017cnienie ustawie\u0144 w pami\u0119ci FLASH        ",
+      "text_short": "Uniewa\u017c.us.FLASH"
+    },
+    {
+      "code": 52,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Skasowanie notatki serwisowej                 ",
+      "text_short": "Skas. not. serw."
+    },
+    {
+      "code": 53,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test czujek wibracyjnych przerwany            ",
+      "text_short": "Tst.wibr.przerw."
+    },
+    {
+      "code": 54,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Koniec po\u0142\u0105czenia TCP/IP (DLOADX)             ",
+      "text_short": "Kn.TCP/IP DLOADX"
+    },
+    {
+      "code": 55,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "",
+      "text_short": "?? TCP/IP DLOADX"
+    },
+    {
+      "code": 56,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Koniec po\u0142\u0105czenia TCP/IP (GUARDX)             ",
+      "text_short": "Kn.TCP/IP GUARDX"
+    },
+    {
+      "code": 57,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Nieudane po\u0142\u0105czenie TCP/IP (GUARDX)           ",
+      "text_short": "?? TCP/IP GUARDX"
+    },
+    {
+      "code": 58,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Koniec po\u0142\u0105czenia TCP/IP (GSM socket)         ",
+      "text_short": "Kn.TCP/IP GSMsoc"
+    },
+    {
+      "code": 59,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Nieudane po\u0142\u0105czenie TCP/IP (GSM socket)       ",
+      "text_short": "?? TCP/IP GSMsoc"
+    },
+    {
+      "code": 60,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Koniec po\u0142\u0105czenia TCP/IP (GSM http)           ",
+      "text_short": "Kn.TCP/IP GSMhtt"
+    },
+    {
+      "code": 61,
+      "restore": false,
+      "long_kind": 30,
+      "short_kind": 8208,
+      "text_long": "Nieudane po\u0142\u0105czenie TCP/IP (GSM http)         ",
+      "text_short": "?? TCP/IP GSMhtt"
+    },
+    {
+      "code": 62,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Dost\u0119p u\u017cytkownika                            ",
+      "text_short": "Dost\u0119p u\u017cytk.   "
+    },
+    {
+      "code": 63,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Wyj\u015bcie u\u017cytkownika                           ",
+      "text_short": "Wyj\u015bcie u\u017cytk.  "
+    },
+    {
+      "code": 64,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Czasowa blokada klawiatury                    ",
+      "text_short": "Czas.blok.klaw. "
+    },
+    {
+      "code": 65,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Czasowa blokada czytnika                      ",
+      "text_short": "Czas.blok.czytn."
+    },
+    {
+      "code": 66,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Za\u0142\u0105czenie czuwania \"Bez wewn\u0119trznych\"        ",
+      "text_short": "Za\u0142.bez wewn\u0119t. "
+    },
+    {
+      "code": 67,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Za\u0142\u0105czenie czuwania \"Bez wew.,op\u00f3\u017an=0\"        ",
+      "text_short": "Za\u0142.bez wew,op=0"
+    },
+    {
+      "code": 68,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Zegar RTC ustawiony                           ",
+      "text_short": "Zegar ustawiony "
+    },
+    {
+      "code": 69,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Skasowanie pami\u0119ci awarii                     ",
+      "text_short": "Skas. pam.awarii"
+    },
+    {
+      "code": 70,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zalogowanie si\u0119 u\u017cytkownika                   ",
+      "text_short": "Zalogowanie si\u0119 "
+    },
+    {
+      "code": 71,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Wylogowanie si\u0119 u\u017cytkownika                   ",
+      "text_short": "Wylogowanie si\u0119 "
+    },
+    {
+      "code": 72,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Otwarcie drzwi z manipulatora LCD             ",
+      "text_short": "Otw.drzwi z LCD "
+    },
+    {
+      "code": 73,
+      "restore": false,
+      "long_kind": 13,
+      "short_kind": 32,
+      "text_long": "Otwarcie drzwi                                ",
+      "text_short": "Otwarcie drzwi  "
+    },
+    {
+      "code": 74,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Przywr\u00f3cenie systemu                          ",
+      "text_short": "Przywr\u00f3c.systemu"
+    },
+    {
+      "code": 75,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 32768,
+      "text_long": "Zmiana klucza ETHM/GPRS                       ",
+      "text_short": "Zm.kl.ETHM/GPRS "
+    },
+    {
+      "code": 76,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Wywo\u0142anie testu powiadamiania                 ",
+      "text_short": "Wyw.test.powiad."
+    },
+    {
+      "code": 77,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Op\u00f3\u017anienie monitorowania alarmu               ",
+      "text_short": "Op\u00f3\u017an.monit.al. "
+    },
+    {
+      "code": 78,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Kabel sieciowy LAN OK                         ",
+      "text_short": "Kabel LAN OK    "
+    },
+    {
+      "code": 79,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "Powiadomienie nieudane                        ",
+      "text_short": "Powiad. nieudane"
+    },
+    {
+      "code": 80,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "Powiadomienie niepewne                        ",
+      "text_short": "Powiad. niepewne"
+    },
+    {
+      "code": 81,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "Powiadomienie OK                              ",
+      "text_short": "Powiad. OK      "
+    },
+    {
+      "code": 82,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "Powiadomienie potwierdzone                    ",
+      "text_short": "Powiad. potwier."
+    },
+    {
+      "code": 83,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "3 b\u0142\u0119dne has\u0142a                                ",
+      "text_short": "3 b\u0142\u0119dne has\u0142a  "
+    },
+    {
+      "code": 84,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 129,
+      "text_long": "Koniec sabota\u017cu g\u0142owicy czytnika              ",
+      "text_short": "Kon.sab.g\u0142owicy "
+    },
+    {
+      "code": 85,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Nieautoryzowane otwarcie drzwi                ",
+      "text_short": "Nieaut.otw.drzwi"
+    },
+    {
+      "code": 86,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Wyj\u015bcie u\u017cytkownika                           ",
+      "text_short": "Wyj\u015bcie u\u017cytk.  "
+    },
+    {
+      "code": 87,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Blokada czasowa strefy                        ",
+      "text_short": "Blok.czas.strefy"
+    },
+    {
+      "code": 88,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Modu\u0142 komunikacyjny OK                        ",
+      "text_short": "Mod.komunik. OK "
+    },
+    {
+      "code": 89,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Zamkni\u0119to zbyt d\u0142ugo otwarte drzwi            ",
+      "text_short": "Zamkni\u0119to drzwi "
+    },
+    {
+      "code": 90,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Zawieszenie funkcji DOWNLOAD                  ",
+      "text_short": "Zawieszenie DWNL"
+    },
+    {
+      "code": 91,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Rozpocz\u0119cie funkcji DOWNLOAD                  ",
+      "text_short": "Rozpocz\u0119cie DWNL"
+    },
+    {
+      "code": 92,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu modu\u0142u (weryfikacja OK)       ",
+      "text_short": "Modu\u0142 OK (wer)  "
+    },
+    {
+      "code": 93,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu modu\u0142u (jest obecno\u015b\u0107)        ",
+      "text_short": "Modu\u0142 OK (ob)   "
+    },
+    {
+      "code": 94,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu modu\u0142u (wej\u015bcie TMP)          ",
+      "text_short": "Modu\u0142 OK (TMP)  "
+    },
+    {
+      "code": 95,
+      "restore": false,
+      "long_kind": 12,
+      "short_kind": 32,
+      "text_long": "Koniec przeci\u0105\u017cenia wyj\u015bcia                   ",
+      "text_short": "Koniec przeci\u0105\u017c."
+    },
+    {
+      "code": 96,
+      "restore": false,
+      "long_kind": 12,
+      "short_kind": 32,
+      "text_long": "Jest obci\u0105\u017cenie wyj\u015bcia                       ",
+      "text_short": "Jest obci\u0105\u017cenie "
+    },
+    {
+      "code": 97,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 2,
+      "text_long": "Koniec d\u0142ugiego naruszenia wej\u015bcia            ",
+      "text_short": "Koniec d\u0142ug.nar."
+    },
+    {
+      "code": 98,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 2,
+      "text_long": "Jest naruszenie wej\u015bcia                       ",
+      "text_short": "Koniec brak.nar."
+    },
+    {
+      "code": 99,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia wej\u015bcia                     ",
+      "text_short": "Koniec nar.wej. "
+    },
+    {
+      "code": 100,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Zwolnienie przycisku pomocy medycznej         ",
+      "text_short": "Kon. pom.medycz."
+    },
+    {
+      "code": 101,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec wezwania pomocy medycznej pilotem      ",
+      "text_short": "Kon. pom.med.pil"
+    },
+    {
+      "code": 110,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia wej\u015bcia \"alarm po\u017carowy\"    ",
+      "text_short": "Kon.-wej.al.po\u017c."
+    },
+    {
+      "code": 111,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia czujki dymu                 ",
+      "text_short": "Kon.-wej.cz.dymu"
+    },
+    {
+      "code": 112,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia czujki \"spalania\"           ",
+      "text_short": "Kon.-we.spalanie"
+    },
+    {
+      "code": 113,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sygna\u0142u \"wyp\u0142yw wody\"                  ",
+      "text_short": "Kon.-we.wyp.wody"
+    },
+    {
+      "code": 114,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu z czujki temperatury            ",
+      "text_short": "Kon.-we.cz.temp."
+    },
+    {
+      "code": 115,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Zwolnienie przycisku po\u017carowego               ",
+      "text_short": "Kon.-przyc. po\u017c."
+    },
+    {
+      "code": 116,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia wej\u015bcia po\u017carowego \"DUCT\"   ",
+      "text_short": "Koniec - \"duct\" "
+    },
+    {
+      "code": 117,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia czujki p\u0142omieni             ",
+      "text_short": "Kon.-czuj.p\u0142om. "
+    },
+    {
+      "code": 120,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Alarm PANIC z klawiatury                      ",
+      "text_short": "Al.napad w klaw."
+    },
+    {
+      "code": 121,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Alarm - dzia\u0142anie pod przymusem               ",
+      "text_short": "Al.pod przymusem"
+    },
+    {
+      "code": 122,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia wej\u015bcia \"PANIC cichy\"       ",
+      "text_short": "Kon.al.nap.cich."
+    },
+    {
+      "code": 123,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia wej\u015bcia \"PANIC g\u0142o\u015bny\"      ",
+      "text_short": "Kon.al.nap.g\u0142o\u015b."
+    },
+    {
+      "code": 126,
+      "restore": false,
+      "long_kind": 5,
+      "short_kind": 1,
+      "text_long": "Alarm - brak wartownika                       ",
+      "text_short": "Brak wartownika "
+    },
+    {
+      "code": 130,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia czujki                      ",
+      "text_short": "Kon.-we.al.w\u0142am."
+    },
+    {
+      "code": 131,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"obwodowa\"            ",
+      "text_short": "Kon.-we.l.obwod."
+    },
+    {
+      "code": 132,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"wewn\u0119trzna\"          ",
+      "text_short": "Kon.-wej.l.wewn."
+    },
+    {
+      "code": 133,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"24h w\u0142amaniowa\"      ",
+      "text_short": "Kon.-l.24h w\u0142am."
+    },
+    {
+      "code": 134,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"wej\u015bcia/wyj\u015bcia\"     ",
+      "text_short": "Kon.-wej.l.we/wy"
+    },
+    {
+      "code": 135,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"cicha/g\u0142o\u015bna\"        ",
+      "text_short": "Kon.-w.l.cich/g\u0142"
+    },
+    {
+      "code": 136,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"zewn\u0119trzna\"          ",
+      "text_short": "Kon.-wej.l.zewn."
+    },
+    {
+      "code": 137,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia obwodu \"antysabota\u017cowego\"   ",
+      "text_short": "Kon.-ob.antysab."
+    },
+    {
+      "code": 139,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Alarm zweryfikowany                           ",
+      "text_short": "Alarm zweryfik. "
+    },
+    {
+      "code": 143,
+      "restore": false,
+      "long_kind": 11,
+      "short_kind": 1025,
+      "text_long": "Koniec uszkodzenia szyny danych               ",
+      "text_short": "Szyna danych OK "
+    },
+    {
+      "code": 144,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu czujki                        ",
+      "text_short": "Kon.sabot.czujki"
+    },
+    {
+      "code": 145,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 2,
+      "text_long": "Koniec sabota\u017cu modu\u0142u                        ",
+      "text_short": "Kon.sabot.modu\u0142u"
+    },
+    {
+      "code": 150,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec naruszenia linii \"24h nie alarmowa\"    ",
+      "text_short": "Kon.-w.24h n.al."
+    },
+    {
+      "code": 151,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu z czujki gazu                   ",
+      "text_short": "Kon.-wej.cz.gazu"
+    },
+    {
+      "code": 152,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu \"zamarzanie\"                    ",
+      "text_short": "Kon.-wej.zamarz."
+    },
+    {
+      "code": 153,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu \"utrata ciep\u0142a\"                 ",
+      "text_short": "Kon.-w.utr.ciep."
+    },
+    {
+      "code": 154,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec wycieku wody                           ",
+      "text_short": "Kon.-we.wyc.wody"
+    },
+    {
+      "code": 155,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu \"przerwanie zabezpieczenia\"     ",
+      "text_short": "Kon.przer.zabez."
+    },
+    {
+      "code": 156,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu linii \"cicha/g\u0142o\u015bna\"          ",
+      "text_short": "Kon.sab.cich/g\u0142."
+    },
+    {
+      "code": 157,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Poziom gazu w butli poprawny                  ",
+      "text_short": "Poziom gazu OK  "
+    },
+    {
+      "code": 158,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu \"zbyt wysoka temperatura\"       ",
+      "text_short": "Kon.-wysoka temp"
+    },
+    {
+      "code": 159,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu \"zbyt niska temperatura\"        ",
+      "text_short": "Kon.-niska temp."
+    },
+    {
+      "code": 200,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu z obwodu zabezp. PPO\u017b           ",
+      "text_short": "Obw.zab.PPO\u017b OK "
+    },
+    {
+      "code": 201,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Ci\u015bnienie wody OK                             ",
+      "text_short": "Ci\u015bnien. wody OK"
+    },
+    {
+      "code": 202,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Ci\u015bnienie CO2 poprawne                        ",
+      "text_short": "Ci\u015bnienie CO2 OK"
+    },
+    {
+      "code": 203,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec alarmu z czujnika zaworu               ",
+      "text_short": "Kon.-czuj.zaworu"
+    },
+    {
+      "code": 204,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Poziom wody OK                                ",
+      "text_short": "Poziom wody OK  "
+    },
+    {
+      "code": 205,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Zatrzymanie pompy                             ",
+      "text_short": "Zatrzymanie pomp"
+    },
+    {
+      "code": 206,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec awarii pompy                           ",
+      "text_short": "Kon. awarii pomp"
+    },
+    {
+      "code": 220,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec otwarcia skrzynki na klucze            ",
+      "text_short": "Zam.sk.na klucze"
+    },
+    {
+      "code": 300,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec awarii modu\u0142u systemowego              ",
+      "text_short": "Modu\u0142 system. OK"
+    },
+    {
+      "code": 301,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec awarii zasilania AC                    ",
+      "text_short": "Kon.aw.AC (230V)"
+    },
+    {
+      "code": 302,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Akumulator na\u0142adowany                         ",
+      "text_short": "Akumulator OK   "
+    },
+    {
+      "code": 303,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 512,
+      "text_long": "B\u0142\u0105d pami\u0119ci RAM                              ",
+      "text_short": "B\u0142\u0105d pami\u0119ci RAM"
+    },
+    {
+      "code": 305,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Restart centrali                              ",
+      "text_short": "Restart centrali"
+    },
+    {
+      "code": 306,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Odtworzenie ustawie\u0144 z pami\u0119ci FLASH          ",
+      "text_short": "Odtworz.ustawie\u0144"
+    },
+    {
+      "code": 309,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Akumulator OK (rezystancja OK)                ",
+      "text_short": "Akum. OK        "
+    },
+    {
+      "code": 312,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec przeci\u0105\u017cenia wyj\u015bcia zasilaj\u0105cego      ",
+      "text_short": "Wyj. zasil. OK  "
+    },
+    {
+      "code": 330,
+      "restore": false,
+      "long_kind": 8,
+      "short_kind": 129,
+      "text_long": "Koniec awarii czytnika kart zbli\u017ceniowych     ",
+      "text_short": "Kon.uszk.cz.kart"
+    },
+    {
+      "code": 333,
+      "restore": false,
+      "long_kind": 11,
+      "short_kind": 1025,
+      "text_long": "Koniec uszkodzenia szyny danych               ",
+      "text_short": "Szyna danych OK "
+    },
+    {
+      "code": 337,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "\u0141adowanie akumulatora OK                      ",
+      "text_short": "\u0141adow.akumul. OK"
+    },
+    {
+      "code": 339,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Restart modu\u0142u                                ",
+      "text_short": "Restart modu\u0142u  "
+    },
+    {
+      "code": 344,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec zag\u0142uszania                            ",
+      "text_short": "Koniec zag\u0142usz. "
+    },
+    {
+      "code": 350,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 32768,
+      "text_long": "Transmisja do stacji OK                       ",
+      "text_short": "Monitoring OK   "
+    },
+    {
+      "code": 351,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 32768,
+      "text_long": "Linia telefoniczna sprawna                    ",
+      "text_short": "Linia telef. OK "
+    },
+    {
+      "code": 370,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu czujki pomocniczej            ",
+      "text_short": "Kon.sab.cz.pom. "
+    },
+    {
+      "code": 373,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu czujki po\u017carowej              ",
+      "text_short": "Kon.sab.cz.po\u017c. "
+    },
+    {
+      "code": 380,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec awarii czujki (maskowanie)             ",
+      "text_short": "Kon.awar.czujki "
+    },
+    {
+      "code": 381,
+      "restore": false,
+      "long_kind": 32,
+      "short_kind": 16384,
+      "text_long": "\u0141\u0105czno\u015b\u0107 radiowa OK                           ",
+      "text_short": "\u0141\u0105cz.radiow. OK "
+    },
+    {
+      "code": 383,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu czujki                        ",
+      "text_short": "Kon.sabot.czujki"
+    },
+    {
+      "code": 384,
+      "restore": false,
+      "long_kind": 32,
+      "short_kind": 16384,
+      "text_long": "Bateria wej\u015bcia radiowego OK                  ",
+      "text_short": "Bat.we.radio. OK"
+    },
+    {
+      "code": 388,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec awarii czujki (maskowanie)             ",
+      "text_short": "Kon.awar.czujki "
+    },
+    {
+      "code": 400,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Za\u0142\u0105czenie czuwania                           ",
+      "text_short": "Za\u0142. czuwania   "
+    },
+    {
+      "code": 401,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Za\u0142\u0105czenie czuwania przez u\u017cytkownika         ",
+      "text_short": "Za\u0142. czuwania   "
+    },
+    {
+      "code": 403,
+      "restore": false,
+      "long_kind": 15,
+      "short_kind": 65,
+      "text_long": "Automatyczne za\u0142\u0105czenie czuwania              ",
+      "text_short": "Auto. za\u0142. czuw."
+    },
+    {
+      "code": 404,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Op\u00f3\u017anione za\u0142\u0105czenie czuwania przez u\u017cytk.    ",
+      "text_short": "Op\u00f3\u017an. za\u0142.czuw."
+    },
+    {
+      "code": 405,
+      "restore": true,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Odroczenie za\u0142\u0105czenia czuwania                ",
+      "text_short": "Odrocz.za\u0142.czuw."
+    },
+    {
+      "code": 406,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Skasowanie alarmu                             ",
+      "text_short": "Skasowan. alarmu"
+    },
+    {
+      "code": 407,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Zdalne za\u0142\u0105czenie czuwania                    ",
+      "text_short": "Zdalne za\u0142.czuw."
+    },
+    {
+      "code": 408,
+      "restore": true,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Szybkie za\u0142\u0105czenie czuwania                   ",
+      "text_short": "Szybkie za\u0142.cz. "
+    },
+    {
+      "code": 409,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Za\u0142\u0105czenie czuwania przez wej\u015bcie             ",
+      "text_short": "Za\u0142.czuw.wej\u015bcie"
+    },
+    {
+      "code": 411,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 2048,
+      "text_long": "Wykonanie oddzwonienia                        ",
+      "text_short": "Oddzwonienie    "
+    },
+    {
+      "code": 412,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Pomy\u015blne zako\u0144czenie funkcji DOWNLOAD         ",
+      "text_short": "Zako\u0144czenie DWNL"
+    },
+    {
+      "code": 413,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Nieudana pr\u00f3ba dost\u0119pu zdalnego DOWNLOAD      ",
+      "text_short": "Nieudana pr.DWNL"
+    },
+    {
+      "code": 421,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Dost\u0119p zabroniony                             ",
+      "text_short": "Dost\u0119p zabron.  "
+    },
+    {
+      "code": 422,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Dost\u0119p u\u017cytkownika                            ",
+      "text_short": "Dost\u0119p u\u017cytk.   "
+    },
+    {
+      "code": 423,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Alarm - otwarcie drzwi czuwaj\u0105cej strefy      ",
+      "text_short": "Otw.drz. cz.str."
+    },
+    {
+      "code": 441,
+      "restore": true,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Za\u0142\u0105czenie czuwania, pozostanie               ",
+      "text_short": "Za\u0142.cz., pozost."
+    },
+    {
+      "code": 442,
+      "restore": true,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Za\u0142\u0105czenie czuwania przez wej\u015bcie, pozostanie ",
+      "text_short": "Za\u0142.cz.wej.,poz."
+    },
+    {
+      "code": 454,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Brak za\u0142\u0105czenia czuwania                      ",
+      "text_short": "Brak za\u0142. czuw. "
+    },
+    {
+      "code": 458,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Start czasu odblokowania op\u00f3\u017anienia           ",
+      "text_short": "Czas odbl.op\u00f3\u017an."
+    },
+    {
+      "code": 461,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Alarm - 3 b\u0142\u0119dne has\u0142a                        ",
+      "text_short": "Alarm-3 b\u0142.has\u0142a"
+    },
+    {
+      "code": 462,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "Obch\u00f3d wartownika                             ",
+      "text_short": "Obch\u00f3d wart.    "
+    },
+    {
+      "code": 570,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Odblokowanie wej\u015bcia                          ",
+      "text_short": "Odblokow.wej\u015bcia"
+    },
+    {
+      "code": 571,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Odblokowanie wej\u015bcia po\u017carowego               ",
+      "text_short": "Odblok.wej.po\u017c. "
+    },
+    {
+      "code": 572,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Odblokowanie wej\u015bcia 24h                      ",
+      "text_short": "Odblokow.wej.24h"
+    },
+    {
+      "code": 573,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Odblokowanie wej\u015bcia \"w\u0142amaniowego\"           ",
+      "text_short": "Odblok.wej.w\u0142am."
+    },
+    {
+      "code": 574,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 2,
+      "text_long": "Odblokowanie grupy wej\u015b\u0107                      ",
+      "text_short": "Odblok.grupy we."
+    },
+    {
+      "code": 575,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Automatyczne odblokowanie wej\u015bcia, naruszenia ",
+      "text_short": "Auto.odbl.(nar.)"
+    },
+    {
+      "code": 601,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "R\u0119czna transmisja testowa                     ",
+      "text_short": "R\u0119czna tr.test. "
+    },
+    {
+      "code": 602,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Okresowa transmisja testowa                   ",
+      "text_short": "Okres. tr.test. "
+    },
+    {
+      "code": 604,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Koniec testu wej\u015b\u0107 po\u017carowych i technicznych  ",
+      "text_short": "Kon.test.w.po\u017c. "
+    },
+    {
+      "code": 607,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Koniec testu wej\u015b\u0107 w\u0142amaniowych               ",
+      "text_short": "Kon.test.w.w\u0142am."
+    },
+    {
+      "code": 611,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test wej\u015bcia OK                               ",
+      "text_short": "Test wej\u015bcia OK "
+    },
+    {
+      "code": 612,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Wej\u015bcie nie zosta\u0142o przetestowane             ",
+      "text_short": "Test wej. - brak"
+    },
+    {
+      "code": 613,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test wej\u015bcia w\u0142amaniowego OK                  ",
+      "text_short": "Test wej.w\u0142am.OK"
+    },
+    {
+      "code": 614,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test wej\u015bcia po\u017carowego OK                    ",
+      "text_short": "Test wej.po\u017c. OK"
+    },
+    {
+      "code": 615,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Test wej\u015bcia napadowego OK                    ",
+      "text_short": "Test wej.nap. OK"
+    },
+    {
+      "code": 621,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Reset pami\u0119ci zdarze\u0144                         ",
+      "text_short": "Reset zdarze\u0144   "
+    },
+    {
+      "code": 622,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Pami\u0119\u0107 zdarze\u0144 pe\u0142na w 50%                    ",
+      "text_short": "50% pami\u0119ci zd. "
+    },
+    {
+      "code": 623,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Pami\u0119\u0107 zdarze\u0144 pe\u0142na w 90%                    ",
+      "text_short": "90% pami\u0119ci zd. "
+    },
+    {
+      "code": 625,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Problem z zegarem RTC                         ",
+      "text_short": "Problem zegara  "
+    },
+    {
+      "code": 627,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Start trybu serwisowego                       ",
+      "text_short": "Start TS        "
+    },
+    {
+      "code": 628,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec trybu serwisowego                      ",
+      "text_short": "Koniec TS       "
+    },
+    {
+      "code": 966,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec konfliktu adres\u00f3w IP                   ",
+      "text_short": "Adres IP OK     "
+    },
+    {
+      "code": 967,
+      "restore": false,
+      "long_kind": 14,
+      "short_kind": 260,
+      "text_long": "Odebrano CLIP steruj\u0105cy                       ",
+      "text_short": "CLIP steruj\u0105cy  "
+    },
+    {
+      "code": 968,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "\u0141\u0105czno\u015b\u0107 OK                                   ",
+      "text_short": "\u0141\u0105czno\u015b\u0107 OK     "
+    },
+    {
+      "code": 969,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Bateria manipulatora OK                       ",
+      "text_short": "Bateria OK      "
+    },
+    {
+      "code": 970,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Start po\u0142\u0105czenia                              ",
+      "text_short": "Start po\u0142\u0105czenia"
+    },
+    {
+      "code": 971,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Stan \u015brodk\u00f3w na koncie SIM1 poprawny          ",
+      "text_short": "Konto SIM1 OK   "
+    },
+    {
+      "code": 972,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Stan \u015brodk\u00f3w na koncie SIM2 poprawny          ",
+      "text_short": "Konto SIM2 OK   "
+    },
+    {
+      "code": 979,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "MAC/IMEI/ID serwera SATEL OK                  ",
+      "text_short": "MAC/IMEI/ID OK  "
+    },
+    {
+      "code": 980,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Po\u0142\u0105czenie z serwerem SATEL OK                ",
+      "text_short": "\u0141\u0105czn.z SATEL OK"
+    },
+    {
+      "code": 981,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Restart telefonu GSM                          ",
+      "text_short": "Restart tel. GSM"
+    },
+    {
+      "code": 982,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Zmiana has\u0142a telefonicznego                   ",
+      "text_short": "Zmiana has\u0142a tel"
+    },
+    {
+      "code": 983,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Has\u0142o telefoniczne u\u017cytkownika odgadni\u0119te     ",
+      "text_short": "H.tel.odgadni\u0119te"
+    },
+    {
+      "code": 984,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec sabota\u017cu czujki (\u0142\u0105czno\u015b\u0107 OK)          ",
+      "text_short": "\u0141\u0105czno\u015b\u0107 OK     "
+    },
+    {
+      "code": 985,
+      "restore": false,
+      "long_kind": 15,
+      "short_kind": 65,
+      "text_long": "Automatyczny start czasu na wyj\u015bcie           ",
+      "text_short": "Start cz.na wyj."
+    },
+    {
+      "code": 986,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Alarm ostrzegawczy                            ",
+      "text_short": "Alarm ostrzeg.  "
+    },
+    {
+      "code": 987,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Skasowanie alarmu ostrzegawczego              ",
+      "text_short": "Skas.al.ostrzeg."
+    },
+    {
+      "code": 988,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Przerwanie za\u0142\u0105czania czuwania                ",
+      "text_short": "Przerw.za\u0142.czuw."
+    },
+    {
+      "code": 989,
+      "restore": false,
+      "long_kind": 7,
+      "short_kind": 4,
+      "text_long": "Wylogowanie si\u0119 u\u017cytkownika (INT-VG)          ",
+      "text_short": "Roz\u0142\u0105cz.z INT-VG"
+    },
+    {
+      "code": 990,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "\u0141\u0105czno\u015b\u0107 z systemem KNX OK                    ",
+      "text_short": "\u0141\u0105czn.z KNX OK  "
+    },
+    {
+      "code": 991,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Automatyczne odblokowanie wej\u015bcia, sabota\u017ce   ",
+      "text_short": "Auto.odbl.(sab.)"
+    },
+    {
+      "code": 992,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Potwierdzenie awarii                          ",
+      "text_short": "Potwierdz.awarii"
+    },
+    {
+      "code": 993,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Potwierdzenie s\u0142abej baterii w pilocie RX     ",
+      "text_short": "Potw.s\u0142.bat.RX  "
+    },
+    {
+      "code": 994,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Potwierdzenie s\u0142abej baterii w pilocie ABAX   ",
+      "text_short": "Potw.s\u0142.bat.ABAX"
+    },
+    {
+      "code": 995,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "U\u017cycie pilota RX ze s\u0142ab\u0105 bateri\u0105             ",
+      "text_short": "S\u0142.bat.pilota RX"
+    },
+    {
+      "code": 996,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "U\u017cycie pilota ABAX ze s\u0142ab\u0105 bateri\u0105           ",
+      "text_short": "S\u0142.bat.pil.ABAX "
+    },
+    {
+      "code": 997,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Koniec d\u0142ugiej zaj\u0119to\u015bci nadajnika (BUSY)     ",
+      "text_short": "Koniec zaj. BUSY"
+    },
+    {
+      "code": 998,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Okresowa transmisja testowa do stacji 1       ",
+      "text_short": "Okres.tr.test.s1"
+    },
+    {
+      "code": 999,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Okresowa transmisja testowa do stacji 2       ",
+      "text_short": "Okres.tr.test.s2"
+    },
+    {
+      "code": 1000,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Koniec awarii z wej\u015bcia                       ",
+      "text_short": "Kon.aw.z wej\u015bcia"
+    },
+    {
+      "code": 1001,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Wymuszone za\u0142\u0105czanie czuwania                 ",
+      "text_short": "Wymuszenie za\u0142. "
+    },
+    {
+      "code": 1002,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Sie\u0107 OK (test PING)                           ",
+      "text_short": "Sie\u0107 OK (PING)  "
+    },
+    {
+      "code": 1003,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Przerwanie za\u0142\u0105czania czuwania                ",
+      "text_short": "Przerw.za\u0142.czuw."
+    },
+    {
+      "code": 1004,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 0,
+      "text_long": "Uruchomienie funkcji DWNL z modu\u0142u ETHM/GSM   ",
+      "text_short": "ETHM/GSM -> DWNL"
+    },
+    {
+      "code": 1005,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Uruchomienie funkcji DWNL-ETHM-1              ",
+      "text_short": "Uruch.DWNL-ETHM1"
+    },
+    {
+      "code": 1006,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Stan akumulatora - OK                         ",
+      "text_short": "Akum.-OK        "
+    },
+    {
+      "code": 1007,
+      "restore": false,
+      "long_kind": 1,
+      "short_kind": 3,
+      "text_long": "Start czasu na wyj\u015bcie                        ",
+      "text_short": "Start cz.na wyj."
+    },
+    {
+      "code": 1008,
+      "restore": false,
+      "long_kind": 2,
+      "short_kind": 5,
+      "text_long": "Start czasu na wyj\u015bcie                        ",
+      "text_short": "Start cz.na wyj."
+    },
+    {
+      "code": 1009,
+      "restore": false,
+      "long_kind": 14,
+      "short_kind": 260,
+      "text_long": "Odebrano SMS steruj\u0105cy - koniec obs\u0142ugi       ",
+      "text_short": "SMS ster.-koniec"
+    },
+    {
+      "code": 1010,
+      "restore": false,
+      "long_kind": 14,
+      "short_kind": 260,
+      "text_long": "Odebrano SMS nie zawieraj\u0105cy sterowa\u0144         ",
+      "text_short": "SMS bez sterowa\u0144"
+    },
+    {
+      "code": 1011,
+      "restore": false,
+      "long_kind": 14,
+      "short_kind": 260,
+      "text_long": "Odebrano SMS z niedozwolonego telefonu        ",
+      "text_short": "SMS z niedozw.t."
+    },
+    {
+      "code": 1012,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Uruchomienie funkcji DWNL-CSD                 ",
+      "text_short": "Uruch. DWNL-CSD "
+    },
+    {
+      "code": 1013,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Uruchomienie funkcji DWNL-GPRS                ",
+      "text_short": "Uruch. DWNL-GPRS"
+    },
+    {
+      "code": 1014,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Sygna\u0142 na wej\u015bciu DSR OK                      ",
+      "text_short": "Sygna\u0142 DSR OK   "
+    },
+    {
+      "code": 1015,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Serwer czasu OK                               ",
+      "text_short": "Serwer czasu OK "
+    },
+    {
+      "code": 1016,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Wywo\u0142anie synchronizacji czasu                ",
+      "text_short": "Wyw.synchr.czasu"
+    },
+    {
+      "code": 1017,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "Powiadomienie SMS OK                          ",
+      "text_short": "Powiad. SMS OK  "
+    },
+    {
+      "code": 1018,
+      "restore": false,
+      "long_kind": 9,
+      "short_kind": 256,
+      "text_long": "B\u0142\u0105d wysy\u0142ania SMS                            ",
+      "text_short": "B\u0142\u0105d powiad. SMS"
+    },
+    {
+      "code": 1019,
+      "restore": false,
+      "long_kind": 3,
+      "short_kind": 12,
+      "text_long": "U\u017cycie pilota                                 ",
+      "text_short": "U\u017cycie pilota   "
+    },
+    {
+      "code": 1020,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "B\u0142\u0105d inicjalizacji LCD/PTSA/ETHM-1/INT-RS     ",
+      "text_short": "B\u0142\u0105d inicj. man."
+    },
+    {
+      "code": 1021,
+      "restore": false,
+      "long_kind": 4,
+      "short_kind": 2,
+      "text_long": "Inicjalizacja LCD/PTSA/ETHM-1/INT-RS OK       ",
+      "text_short": "Inicjal. man. OK"
+    },
+    {
+      "code": 1022,
+      "restore": false,
+      "long_kind": 0,
+      "short_kind": 2048,
+      "text_long": "Wywo\u0142anie funkcji DOWNLOAD z ETHM-1/INT-GSM   ",
+      "text_short": "DWNL ETHM/INTGSM"
+    },
+    {
+      "code": 1023,
+      "restore": false,
+      "long_kind": 6,
+      "short_kind": 20,
+      "text_long": "Skasowanie informacji o sabota\u017cu              ",
+      "text_short": "Skas.inf. o sab."
+    }
+  ]
+}
