@@ -605,7 +605,7 @@ class IntegraChannel:
         try:
             if await self._async_channel_connect( timeout ):
                 self._read_task = self._eventloop.create_task( self._async_read_task(), name=IntegraChannel.CloseSource.READ_TASK.value )
-                self._ping_task = self._eventloop.create_task( self._async_ping_task(), name=IntegraChannel.CloseSource.READ_TASK.value )
+                self._ping_task = self._eventloop.create_task( self._async_ping_task(), name=IntegraChannel.CloseSource.PING_TASK.value )
                 await self._async_do_event( IntegraChannelEvent.CONNECTED, None )
                 return True
 

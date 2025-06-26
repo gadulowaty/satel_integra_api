@@ -388,8 +388,9 @@ class IntegraUserLocks( IntegraUserData ):
         self._locks = IntegraHelper.doors_from_bytes( payload[ 1: 9 ] ) if payload_len > 8 else [ ]
 
     def _write_bytes( self, payload: IntegraBuffer ):
-        super()._write_bytes(payload)
+        super()._write_bytes( payload )
         payload.put_bytes( IntegraHelper.locks_to_bytes( self.locks ) )
+
 
 class IntegraUsersList( IntegraUserData ):
 
@@ -471,7 +472,8 @@ class IntegraUserBase( IntegraUserData ):
     @utype.setter
     def utype( self, utype: IntegraUserType ):
         self._utype = utype
-        if not self._utype in [ IntegraUserType.TIME_RENEWABLE, IntegraUserType.TIME_NOT_RENEWABLE, IntegraUserType.PARTS_TEMP_BLOCKING, IntegraUserType.SCHEDULE ]:
+        if not self._utype in [ IntegraUserType.TIME_RENEWABLE, IntegraUserType.TIME_NOT_RENEWABLE, IntegraUserType.PARTS_TEMP_BLOCKING,
+                                IntegraUserType.SCHEDULE ]:
             self._time = 0
             self._time_temp = 0
 

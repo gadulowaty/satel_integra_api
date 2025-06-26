@@ -2,17 +2,16 @@ import asyncio
 import logging
 import os.path
 import sys
+import secure
 
 import satel_integra_api as integra_api
-import secure
 from colorlog import ColoredFormatter
 
 from asyncio.events import AbstractEventLoop
 
 from satel_integra_api import IntegraSystem, IntegraItem, IntegraStateEvent, IntegraClientStatus
 from satel_integra_api.objects import IntegraStateBase
-from satel_integra_api.base import IntegraTypeVal, IntegraArmMode
-from satel_integra_api.users import IntegraUser, IntegraUserType, IntegraUserRights, IntegraUserProximityCard, IntegraUserDallasDev
+from satel_integra_api.base import IntegraTypeVal
 
 # FORMAT = "[%(thread)d][%(taskName)s][%(filename)s:%(lineno)s][%(levelname)s]: %(message)s"
 FORMAT = "%(asctime)s.%(msecs)03d %(levelname)s (%(taskName)s) [%(name)s:%(lineno)s] %(message)s"
@@ -122,7 +121,7 @@ async def async_main( eventloop: AbstractEventLoop | None ):
 
 def main():
     asyncio.run(async_main( None ))
-    _LOGGER.info( "Going home..." )
+    _LOGGER.info( "Going home for good..." )
 
 
 if __name__ == "__main__":

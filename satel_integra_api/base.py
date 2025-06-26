@@ -149,9 +149,9 @@ class IntegraDispatcher:
     async def _dispatcher_task( self ) -> None:
 
         _LOGGER.debug( f"[{self._name}] task start" )
+        task_self = asyncio.current_task()
         # noinspection PyBroadException
         try:
-            task_self = asyncio.current_task()
             while self._queue is not None and task_self.cancelling() == 0:
                 if await self._event.wait():
                     event_item = await self._get()
