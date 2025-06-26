@@ -270,7 +270,6 @@ class IntegraChannel:
 
             size: int = read_chunk[ 0 ]
             pdu = await self.channel._async_channel_read( size )
-            read_chunk = await self.channel._async_channel_read( len(pdu) )
             if DEBUG_SHOW_RESPONSES_ENC:
                 _LOGGER.debug( f"_async_read_encrypted_request[{self.channel_id}]: <E< ({size}) [ {IntegraHelper.hex_str(pdu )} ]" )
             data = self._read_data_from_pdu( pdu )
@@ -286,7 +285,6 @@ class IntegraChannel:
             read_index = 0
 
             while True:
-                self._channel._stats.update_rx_bytes()
                 if source is None:
                     read_chunk = await self.channel._async_channel_read( 1 )
                     if len( read_chunk ) == 0:
@@ -300,6 +298,7 @@ class IntegraChannel:
                     read_index += 1
                     if read_index > len( source ):
                         raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
+                self._channel._stats.update_rx_bytes()
 
                 if read_byte == FRAME_SYNC:
                     if in_message:
@@ -351,9 +350,12 @@ class IntegraChannel:
 
             self._channel._stats.update_tx_bytes( len( data ) )
             if self._cipher is not None:
+                size = len( data )
                 data = self._write_data_with_pdu( data )
-                data = (len( data )).to_bytes( 1, "big" ) + data
+                data = size.to_bytes( 1, "big" ) + data
                 self._channel._stats.update_tx_enc_bytes( len( data ) )
+                if DEBUG_SHOW_REQUESTS_ENC:
+                    _LOGGER.debug( f"async_write[{self.channel_id}]: >E> ({size}) [ {IntegraHelper.hex_str(data)} ]" )
 
             return await self.channel._async_channel_write( data )
 
