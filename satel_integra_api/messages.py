@@ -1,7 +1,7 @@
 from enum import IntEnum
 
 from .const import FRAME_START, FRAME_END, FRAME_SYNC, FRAME_SYNC_ESC, FRAME_LEN_MIN
-from .base import IntegraEntity
+from .base import IntegraEntity, IntegraError
 from .commands import IntegraCommand, IntegraCmdData
 from .tools import IntegraHelper
 
@@ -105,6 +105,33 @@ class IntegraRequest( IntegraMessage ):
         return bytes( FRAME_START ) + payload + bytes( FRAME_END )
 
 
+class IntegraRequestError( IntegraError ):
+
+    def __init__( self, command: IntegraCommand | None, error_code: IntegraResponseErrorCode, error_code_no: int ):
+        super().__init__()
+        self._command: IntegraCommand | None = command
+        self._error_code: IntegraResponseErrorCode = error_code
+        self._error_code_no: int = error_code_no
+
+    @property
+    def command(self):
+        return self._command
+
+    @property
+    def error_code(self) -> IntegraResponseErrorCode:
+        return self._error_code
+
+    @property
+    def error_code_no(self) -> int:
+        return self._error_code_no
+
+    @property
+    def message( self ) -> str:
+        if self.command is not None:
+            return f"Request {self.command.name} failed, error code was {self.error_code.name} ({self.error_code_no})"
+        return f"Integra request failed, error code was {self.error_code.name} ({self.error_code_no})"
+
+
 class IntegraResponse( IntegraMessage ):
 
     @classmethod
@@ -134,7 +161,7 @@ class IntegraResponse( IntegraMessage ):
     @property
     def broadcast( self ) -> bool:
         return (self._request is not None and self._request.broadcast) or (self.command == IntegraCommand.READ_OUTPUT_POWER) or (self.command == IntegraCommand.READ_ZONE_TEMPERATURE) or (
-                    (self.command >= IntegraCommand.READ_ZONES_VIOLATION) and (self.command <= IntegraCommand.READ_TROUBLES_MEMORY_PART8))
+                (self.command >= IntegraCommand.READ_ZONES_VIOLATION) and (self.command <= IntegraCommand.READ_TROUBLES_MEMORY_PART8))
 
     @property
     def request( self ) -> IntegraRequest | None:
@@ -165,15 +192,12 @@ class IntegraResponse( IntegraMessage ):
         return None
 
     @staticmethod
-    def error( command: IntegraCommand, err_code: IntegraResponseErrorCode ):
-        result = IntegraResponse( command )
-        result._error_code = err_code
-        result._error_code_no = err_code.value
-        return result
-
-    @staticmethod
     def result( command: IntegraCommand, error_code_no: int ):
         result = IntegraResponse( command )
         result._error_code_no = error_code_no
         result._error_code = IntegraResponseErrorCode( error_code_no ) if error_code_no in IntegraResponseErrorCodes else IntegraResponseErrorCode.UNKNOWN_ERROR
         return result
+
+    @staticmethod
+    def error( command: IntegraCommand, err_code: IntegraResponseErrorCode ):
+        return IntegraResponse.result( command, err_code.value )

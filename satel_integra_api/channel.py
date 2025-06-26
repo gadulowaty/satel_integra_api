@@ -10,7 +10,7 @@ from enum import IntEnum, StrEnum
 from typing import Any, Awaitable, Callable
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
-from .base import IntegraEntity, IntegraError, IntegraRequestError
+from .base import IntegraEntity, IntegraError
 from .const import (
     DEFAULT_CONN_TIMEOUT,
     DEFAULT_KEEP_ALIVE,
@@ -89,22 +89,23 @@ class IntegraChannelStats( IntegraEntity ):
 
 
 class IntegraChannelErrorCode( IntEnum ):
-    CONN_TIMEOUT = 0
-    CONN_REFUSED = 1
-    READ_ERROR = 2
-    WRITE_ERROR = 3
-    INVALID_ENCRYPTION_KEY = 4
-    REMOTE_CLOSED = 5
-    REMOTE_BUSY = 6
+    NOT_CONNECTED = 0
+    CONN_TIMEOUT = 1
+    CONN_REFUSED = 2
+    READ_ERROR = 3
+    WRITE_ERROR = 4
+    INVALID_ENCRYPTION_KEY = 5
+    REMOTE_CLOSED = 6
+    REMOTE_BUSY = 7
 
 
 class IntegraChannelError( IntegraError ):
 
-    def __init__( self, channel_id: str, error_code: IntegraChannelErrorCode, exception: Exception | str | None = None ):
+    def __init__( self, channel_id: str, error_code: IntegraChannelErrorCode, exception: BaseException | str | None = None ):
         super().__init__()
         self._channel_id: str = channel_id
         self._error_code: IntegraChannelErrorCode = error_code
-        self._exception: Exception | str | None = exception
+        self._exception: BaseException | str | None = exception
 
     @property
     def channel_id( self ) -> str:
@@ -115,12 +116,14 @@ class IntegraChannelError( IntegraError ):
         return self._error_code
 
     @property
-    def exception( self ) -> Exception | str | None:
+    def exception( self ) -> BaseException | str | None:
         return self._exception
 
     @property
     def message( self ) -> str:
-        if self._error_code == IntegraChannelErrorCode.CONN_TIMEOUT:
+        if self._error_code == IntegraChannelErrorCode.NOT_CONNECTED:
+            return f"Remote endpoint {self.channel_id} is not connected."
+        elif self._error_code == IntegraChannelErrorCode.CONN_TIMEOUT:
             return f"Connection to remote endpoint {self.channel_id} cannot be established{self._get_exception_info()}"
         elif self._error_code == IntegraChannelErrorCode.CONN_REFUSED:
             return f"Connection to remote endpoint {self.channel_id} refused{self._get_exception_info()}"
@@ -139,7 +142,7 @@ class IntegraChannelError( IntegraError ):
 
     def _get_exception_info( self ) -> str:
         if self.exception is not None:
-            if isinstance( self.exception, Exception ):
+            if isinstance( self.exception, BaseException ):
                 exception_msg = f"{self.exception}"
                 if exception_msg != "":
                     return f" ({self.exception.__class__.__name__}: {self.exception})"
@@ -187,6 +190,10 @@ class IntegraChannel:
         @property
         def channel( self ) -> 'IntegraChannel':
             return self._channel
+
+        @property
+        def channel_id( self ) -> str:
+            return self._channel.channel_id
 
         @staticmethod
         def _data_blocks( data: bytes, block_len: int ):
@@ -251,7 +258,7 @@ class IntegraChannel:
                 raise IntegraChannelError( self.channel.channel_id, IntegraChannelErrorCode.INVALID_ENCRYPTION_KEY, f"Incorrect value of ID_S, received 0x{decrypted_pdu[ 5 ]:02x}, expected 0x{self._id_s:02x}" )
             return bytes( data )
 
-        async def _async_channel_read_encrypted( self ) -> bytes:
+        async def _async_read_encrypted( self ) -> bytes:
 
             self._channel._stats.update_rx_enc_bytes()
             read_chunk = await self.channel._async_channel_read( 1 )
@@ -264,7 +271,7 @@ class IntegraChannel:
 
             return data
 
-        async def _async_channel_read_plain( self, source: bytes | None ) -> bytes:
+        async def _async_read_plain( self, source: bytes | None ) -> bytes:
 
             in_message: bool = False
             sync_bytes: int = 0
@@ -323,16 +330,16 @@ class IntegraChannel:
 
             return buffer
 
-        async def async_channel_read( self ) -> IntegraResponse | None:
-            decrypted = await self._async_channel_read_encrypted() if self._cipher is not None else None
-            buffer = await self._async_channel_read_plain( decrypted )
+        async def async_read( self ) -> IntegraResponse | None:
+            decrypted = await self._async_read_encrypted() if self._cipher is not None else None
+            buffer = await self._async_read_plain( decrypted )
 
             if IntegraHelper.debug_message( buffer[ 0 ], DEBUG_SHOW_RESPONSES_RAW ):
                 _LOGGER.debug( f"async_channel_read[{self.channel.channel_id}]: <<< {IntegraHelper.hex_str( buffer )}" )
 
             return IntegraResponse.from_bytes( buffer )
 
-        async def async_channel_write( self, data: bytes ) -> None:
+        async def async_write( self, data: bytes ) -> None:
 
             self._channel._stats.update_tx_bytes( len( data ) )
             if self._cipher is not None:
@@ -352,7 +359,7 @@ class IntegraChannel:
         self._keepalive: float = DEFAULT_KEEP_ALIVE
         self._last_write = datetime.now()
         self._response_handlers: list[ Callable[ [ IntegraResponse | Exception ], bool ] ] = [ ]
-        self._comm_handler: IntegraChannel.EncryptionHandler = IntegraChannel.EncryptionHandler( self, integration_key )
+        self._handler: IntegraChannel.EncryptionHandler = IntegraChannel.EncryptionHandler( self, integration_key )
         self._on_event: IntegraChannelEventCallback = on_event
         self._stats: IntegraChannelStats = IntegraChannelStats()
 
@@ -383,16 +390,16 @@ class IntegraChannel:
     async def _async_post_data( self, data: bytes ) -> None:
 
         if not self.connected:
-            raise IntegraRequestError( f"host is not connected" )
+            raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.NOT_CONNECTED )
 
         try:
             async with self._write_lock:
-                await self._comm_handler.async_channel_write( data )
+                await self._handler.async_write( data )
                 self._last_write = datetime.now()
 
         except OSError as err:
             await self._async_close( IntegraChannel.CloseSource.REQUEST )
-            raise IntegraRequestError( f"post_data failed, {err}" ) from None
+            raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.WRITE_ERROR, err ) from None
 
     async def _async_post_request( self, request: IntegraRequest ) -> None:
         payload = request.get_payload()
@@ -443,7 +450,7 @@ class IntegraChannel:
                         break
 
                     except AsyncCancelledError as err:
-                        raise IntegraRequestError( f"Request cancelled, {err}" )
+                        raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.READ_ERROR, err )
             finally:
                 try:
                     self._response_handlers.remove( on_response )
@@ -507,7 +514,7 @@ class IntegraChannel:
         try:
             _LOGGER.debug( f"_async_read_task[{self.channel_id}]: STARTED" )
             while True:
-                response = await  self._comm_handler.async_channel_read()
+                response = await  self._handler.async_read()
                 if response:
                     begin_ts = datetime.now()
                     response_handled: bool = False

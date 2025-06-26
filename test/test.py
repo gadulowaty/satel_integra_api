@@ -86,29 +86,30 @@ async def async_main( eventloop: AbstractEventLoop | None ):
 
         await system.async_monitor_start( integra_api.IntegraAllNotifyEvents )
 
-        cache_file = os.path.join( os.path.dirname( __file__ ), "system.json" )
-        system.system_info_load( cache_file )
+        with system.client.request_no_error( logging.WARNING ):
+            cache_file = os.path.join( os.path.dirname( __file__ ), "system.json" )
+            system.system_info_load( cache_file )
 
-        user_self = await system.client.async_user_read_self()
-        if user_self is not None:
-            _LOGGER.info( f"Welcome back, {user_self.name}..." )
+            user_self = await system.client.async_user_read_self()
+            if user_self is not None:
+                _LOGGER.info( f"Welcome back, {user_self.name}..." )
 
-        system_loaded = await system.async_system_info_wait_for( load_progress )
-        _LOGGER.info( f"System loaded: {system_loaded}" )
+            system_loaded = await system.async_system_info_wait_for( load_progress )
+            _LOGGER.info( f"System loaded: {system_loaded}" )
 
-        with system.monitor_configure():
-            system.outputs[ 23 ].power_monitor = 5
-            system.zones[ 21 ].temp_monitor = system.zones[ 41 ].temp_monitor = system.zones[ 42 ].temp_monitor = 10
+            with system.monitor_configure():
+                system.outputs[ 23 ].power_monitor = 5
+                system.zones[ 21 ].temp_monitor = system.zones[ 41 ].temp_monitor = system.zones[ 42 ].temp_monitor = 10
 
-        index = 0
-        while system.status != IntegraClientStatus.DISCONNECTED:
-            index += 1
-            _LOGGER.debug( f"Running-{index}: ({system.status.name})" )
-            await asyncio.sleep( 5 )
-            if index >= 3:
-                break
+            index = 0
+            while system.status != IntegraClientStatus.DISCONNECTED:
+                index += 1
+                _LOGGER.debug( f"Running-{index}: ({system.status.name})" )
+                await asyncio.sleep( 5 )
+                if index >= 3:
+                    break
 
-        _LOGGER.debug( f"Finishing: {system.status.name}" )
+            _LOGGER.debug( f"Finishing: {system.status.name}" )
 
 
     except Exception as err:

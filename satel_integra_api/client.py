@@ -7,6 +7,8 @@ import traceback
 
 from enum import IntEnum
 
+from base import IntegraTaskContextRefCnt
+
 _LOGGER = logging.getLogger( __name__ )
 
 from datetime import datetime, timedelta
@@ -16,7 +18,7 @@ from typing import Any, Callable, Awaitable
 
 from .const import DEFAULT_CONN_TIMEOUT, DEFAULT_RESP_TIMEOUT, DEFAULT_KEEP_ALIVE
 from .base import (IntegraEntity, IntegraType, IntegraBaseType, IntegraCaps, IntegraTroubles,
-                   IntegraMap, IntegraArmMode, IntegraModuleCaps, Integra1stCodeAction, IntegraDispatcher, IntegraContextRefCnt, IntegraError, IntegraRequestError)
+                   IntegraMap, IntegraArmMode, IntegraModuleCaps, Integra1stCodeAction, IntegraDispatcher, IntegraContextRefCnt, IntegraError)
 from .channel import IntegraChannelStats, IntegraChannel, IntegraChannelEvent
 from .channel_serial import IntegraChannelRS232
 from .channel_tcp import IntegraChannelTCP
@@ -33,7 +35,7 @@ from .elements import (IntegraElement, IntegraObjectElement, IntegraPartElement,
                        IntegraOutputElement, IntegraOutputWithDurationElement, IntegraUserElement, IntegraAdminElement,
                        IntegraExpanderElement, IntegraManipulatorElement, IntegraTimerElement, IntegraPhoneElement)
 from .events import IntegraEventSource, IntegraEventRecData, IntegraEventTextData, INTEGRA_EVENT_STD_LAST, INTEGRA_EVENT_GRADE_LAST, IntegraEventRecStdData, IntegraEventRecGradeData
-from .messages import IntegraResponse, IntegraResponseErrorCode, IntegraResponseErrorCodes
+from .messages import IntegraResponse, IntegraResponseErrorCode, IntegraResponseErrorCodes, IntegraRequestError
 from .notify import (IntegraNotifyEvent, IntegraPartsNotifyEvents, IntegraZonesNotifyEvents, IntegraOutputsNotifyEvents,
                      IntegraOthersNotifyEvents, IntegraDoorsNotifyEvents, IntegraTroublesNotifyEvents, IntegraDataNotifyEvents,
                      IntegraTroublesMemoryNotifyEvents, IntegraNotifySource)
@@ -169,6 +171,7 @@ class IntegraClient( IntegraEntity ):
         self._event_dispatcher: IntegraDispatcher | None = None
         self._system_monitor_task: Task | None = None
         self._system_monitor_cfg: IntegraContextRefCnt = IntegraContextRefCnt( self._system_monitor_reconfigure )
+        self._request_no_error: IntegraTaskContextRefCnt = IntegraTaskContextRefCnt()
         self._system_monitor_event: asyncio.Event = asyncio.Event()
         self._on_event: IntegraClientEventCallback = None
         self._on_state_changed: IntegraClientStateChangedCallback = None
@@ -305,13 +308,16 @@ class IntegraClient( IntegraEntity ):
     def _set_channel( self, channel: IntegraChannel ):
         self._channel = channel
 
-    @staticmethod
-    def _check_response( response: IntegraResponse | None ) -> bool:
+    def _check_response( self, response: IntegraResponse | None ) -> bool:
         if response is None:
-            # _LOGGER.error( f"Empty response received" )
+            if not self._request_no_error.ref_count:
+                raise IntegraRequestError( None, IntegraResponseErrorCode.UNKNOWN_ERROR, -1 )
             return False
         if not response.success:
-            _LOGGER.error( f"{response.request} failed, error code is {response.error_code.name} ({response.error_code_no})" )
+            if not self._request_no_error.ref_count:
+                raise IntegraRequestError( response.request.command if response.request else response.command, response.error_code, response.error_code_no )
+            else:
+                _LOGGER.log( self._request_no_error.log_level, f"{response.request} failed, error code is {response.error_code.name} ({response.error_code_no})" )
             return False
         return True
 
@@ -481,8 +487,12 @@ class IntegraClient( IntegraEntity ):
         else:
             self._system_monitor_cfg.changed = True
 
-    def system_monitor_configure( self ):
+    def system_monitor_configure( self ) -> object:
         return self._system_monitor_cfg
+
+    def request_no_error( self, log_level: int = -1 ) -> object:
+        self._request_no_error.log_level = log_level
+        return self._request_no_error
 
     async def _async_set_status( self, status: IntegraClientStatus ):
         if self._status != status:

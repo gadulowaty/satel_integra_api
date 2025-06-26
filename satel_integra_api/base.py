@@ -262,16 +262,6 @@ class IntegraError( Exception ):
     def message(self) -> str:
         raise NotImplementedError()
 
-class IntegraRequestError( IntegraError ):
-
-    def __init__( self, message: str = "" ):
-        super().__init__(  )
-        self._message = message
-
-    @property
-    def message(self) -> str:
-        return f"{self._message if self._message else self.__class__.__name__}"
-
 IntegraContextRefCntCommitCallback = Callable[ [ ], None ]
 
 
@@ -281,13 +271,14 @@ class IntegraContextRefCnt( IntegraEntity ):
         self._ref_count += 1
 
     def __exit__( self, exc_type, exc_val, exc_tb ):
-        self._ref_count -= 1
+        if self._ref_count > 0:
+            self._ref_count -= 1
         if self._ref_count == 0:
             if self._commit_callback is not None and self._changed:
                 self._commit_callback()
             self._changed = False
 
-    def __init__( self, commit_callback: IntegraContextRefCntCommitCallback | None ):
+    def __init__( self, commit_callback: IntegraContextRefCntCommitCallback | None = None ):
         super().__init__()
         self._ref_count = 0
         self._commit_callback: IntegraContextRefCntCommitCallback = commit_callback
@@ -304,6 +295,41 @@ class IntegraContextRefCnt( IntegraEntity ):
     @property
     def ref_count( self ) -> int:
         return self._ref_count
+
+class IntegraTaskContextRefCnt( IntegraEntity ):
+
+    def __enter__( self ):
+        task_name = asyncio.current_task().get_name()
+        self._ref_count.setdefault( task_name, 0 )
+        self._ref_count[task_name] += 1
+
+    def __exit__( self, exc_type, exc_val, exc_tb ):
+        task_name = asyncio.current_task().get_name()
+        self._ref_count.setdefault( task_name, 0 )
+        if self._ref_count[ task_name ] > 0:
+            self._ref_count[task_name] -= 1
+
+    def __init__( self ):
+        super().__init__()
+        self._ref_count: dict[str, int] = {}
+        self._log_level: dict[str, int] = {}
+
+    @property
+    def ref_count( self ) -> int:
+        task_name = asyncio.current_task().get_name()
+        return self._ref_count.get( task_name, 0 )
+
+    @property
+    def log_level( self ) -> int:
+        task_name = asyncio.current_task().get_name()
+        return self._log_level.get( task_name, 0 )
+
+    @log_level.setter
+    def log_level( self, value ):
+        task_name = asyncio.current_task().get_name()
+        self._log_level.setdefault( task_name, 0 )
+        self._log_level[task_name] = value
+
 
 
 class IntegraCaps:

@@ -77,9 +77,12 @@ class IntegraChannelTCP( IntegraChannel ):
             raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.READ_ERROR, err ) from err
 
     async def _async_channel_write( self, data: bytes ):
-        if self._tcp_writer is not None:
-            self._tcp_writer.write( data )
-            await self._tcp_writer.drain()
+        try:
+            if self._tcp_writer is not None:
+                self._tcp_writer.write( data )
+                await self._tcp_writer.drain()
+        except Exception as err:
+            raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.WRITE_ERROR, err ) from err
 
     @property
     def channel_id( self ) -> str:
