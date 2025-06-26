@@ -70,7 +70,7 @@ class IntegraChannelTCP( IntegraChannel ):
         self._socket.close()
         self._socket = None
 
-    async def _async_channel_read( self, count: int ):
+    async def _async_channel_read( self, count: int ) -> bytes:
         try:
             return await self._tcp_reader.read( count )
         except Exception as err:

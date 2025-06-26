@@ -81,7 +81,7 @@ async def async_main( eventloop: AbstractEventLoop | None ):
     system.subscribe( integra_api.Events.EVENT_SYS_ITEM_CHANGED, sys_item_event_handler )
 
     try:
-        if not await system.async_connect( retries=5 ):
+        if not await system.async_connect( retries=2 ):
             return
 
         await system.async_monitor_start( integra_api.IntegraAllNotifyEvents )
@@ -112,7 +112,7 @@ async def async_main( eventloop: AbstractEventLoop | None ):
             _LOGGER.debug( f"Finishing: {system.status.name}" )
 
 
-    except Exception as err:
+    except BaseException as err:
         _LOGGER.error( err )
 
     finally:

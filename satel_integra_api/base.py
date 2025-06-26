@@ -250,7 +250,7 @@ class IntegraEntity( object ):
         super().__init__()
 
 
-class IntegraError( BaseException ):
+class IntegraError( Exception ):
 
     def __str__(self) -> str:
         return self.message

@@ -10,6 +10,7 @@ from enum import IntEnum, StrEnum
 from typing import Any, Awaitable, Callable
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
+import const
 from .base import IntegraEntity, IntegraError
 from .const import (
     DEFAULT_CODE_PAGE,
@@ -261,13 +262,16 @@ class IntegraChannel:
 
         async def _async_read_encrypted( self ) -> bytes:
 
-            self._channel._stats.update_rx_enc_bytes()
             read_chunk = await self.channel._async_channel_read( 1 )
-            if len( read_chunk ) == 0 or read_chunk[ 0 ] <= 0:
+            self._channel._stats.update_rx_enc_bytes( 1 )
+            if len( read_chunk ) == 0 or read_chunk[ 0 ] == 0:
                 raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
 
-            self._channel._stats.update_rx_enc_bytes( read_chunk[ 0 ] )
-            pdu = await self.channel._async_channel_read( read_chunk[ 0 ] )
+            size: int = read_chunk[ 0 ]
+            pdu = await self.channel._async_channel_read( size )
+            read_chunk = await self.channel._async_channel_read( len(pdu) )
+            if const.DEBUG_SHOW_RESPONSES_ENC:
+                _LOGGER.debug( f"_async_read_encrypted_request[{self.channel_id}]: <E< ({size}) [ {IntegraHelper.hex_str(pdu )} ]" )
             data = self._read_data_from_pdu( pdu )
 
             return data
@@ -361,7 +365,7 @@ class IntegraChannel:
         self._read_task: Task | None = None
         self._keepalive: float = DEFAULT_KEEP_ALIVE
         self._last_write = datetime.now()
-        self._response_handlers: list[ Callable[ [ IntegraResponse | Exception ], bool ] ] = [ ]
+        self._response_handlers: list[ Callable[ [ IntegraResponse | BaseException ], bool ] ] = [ ]
         self._handler: IntegraChannel.EncryptionHandler = IntegraChannel.EncryptionHandler( self, integration_key )
         self._on_event: IntegraChannelEventCallback = on_event
         self._stats: IntegraChannelStats = IntegraChannelStats()
@@ -425,11 +429,11 @@ class IntegraChannel:
             result: IntegraResponse | None = None
             response_reader = self._eventloop.create_future()
 
-            def on_response( response: IntegraResponse | Exception ) -> bool:
+            def on_response( response: IntegraResponse | BaseException ) -> bool:
 
                 if not response_reader.done():
 
-                    if isinstance( response, Exception ):
+                    if isinstance( response, BaseException ):
                         response_reader.set_result( response )
                         return False
 
@@ -460,7 +464,7 @@ class IntegraChannel:
                 except ValueError:
                     pass
 
-            if isinstance( result, Exception ):
+            if isinstance( result, BaseException ):
                 raise result
             else:
                 if result is None:
@@ -512,7 +516,7 @@ class IntegraChannel:
     async def _async_read_task( self ) -> None:
 
         task_self = asyncio.current_task()
-        task_err: Exception | None = None
+        task_err: BaseException | None = None
 
         try:
             _LOGGER.debug( f"_async_read_task[{self.channel_id}]: STARTED" )
@@ -532,7 +536,7 @@ class IntegraChannel:
                     if not response_handled or response.broadcast:
                         try:
                             await self._async_do_event( IntegraChannelEvent.NOTIFICATION, response )
-                        except Exception as err:
+                        except BaseException as err:
                             _LOGGER.error( f"_async_read_task[{self.channel_id}]: FAILURE - error while dispatching notification, {err}" )
                             print( traceback.format_exc() )
 
@@ -543,7 +547,7 @@ class IntegraChannel:
             # _LOGGER.debug( f"_async_read_task[{self.channel_id}]: CANCELLED" )
             pass
 
-        except Exception as err:
+        except BaseException as err:
             # self._read_task = None
             task_err = err
             await self._async_close( IntegraChannel.CloseSource.READ_TASK )
@@ -559,7 +563,7 @@ class IntegraChannel:
     async def _async_ping_task( self ) -> None:
         """Perform dummy data posting to connected controller"""
         task_self = asyncio.current_task()
-        task_err: Exception | None = None
+        task_err: BaseException | None = None
 
         try:
             _LOGGER.debug( f"_async_ping_task[{self.channel_id}]: STARTED" )
@@ -577,7 +581,7 @@ class IntegraChannel:
             # _LOGGER.debug( f"_async_ping_task[{self.channel_id}]: CANCELLED" )
             pass
 
-        except Exception as err:
+        except BaseException as err:
             # self._ping_task = None
             task_err = err
             await self._async_close( IntegraChannel.CloseSource.PING_TASK )

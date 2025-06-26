@@ -456,7 +456,7 @@ class IntegraClient( IntegraEntity ):
                 # _LOGGER.warning( f"[{task_name}]: CANCELLED" )
                 break
 
-            except Exception as err:
+            except BaseException as err:
                 if not isinstance( err, IntegraError ):
                     _LOGGER.debug( f"[{task_name}]: ERROR, {err}\n{traceback.format_exc()}" )
                 break
@@ -476,7 +476,7 @@ class IntegraClient( IntegraEntity ):
         system_monitor.cancel()
         try:
             await system_monitor
-        except Exception as err:
+        except BaseException as err:
             _LOGGER.debug( f"awaiting for task system_monitor finished with {err}" )
 
     def _system_monitor_reconfigure( self ):
@@ -1404,7 +1404,7 @@ class IntegraClient( IntegraEntity ):
         conn_result = await self._async_connect_task_start( retries, timeout, IntegraClientStatus.CONNECTING )
         if conn_result is not None:
             result = await asyncio.wait_for( conn_result, None )
-            if isinstance( result, Exception ):
+            if isinstance( result, BaseException ):
                 raise result
         return self._status == IntegraClientStatus.CONNECTED
 
@@ -1415,7 +1415,7 @@ class IntegraClient( IntegraEntity ):
             connect_task.cancel()
             try:
                 await connect_task
-            except Exception as err:
+            except BaseException as err:
                 _LOGGER.debug( f"connection_task await, {err}" )
             finally:
                 await self._channel.async_disconnect()
