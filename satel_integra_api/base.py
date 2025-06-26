@@ -148,7 +148,7 @@ class IntegraDispatcher:
 
     async def _dispatcher_task( self ) -> None:
 
-        _LOGGER.debug( f"[{self._name}] task start" )
+        _LOGGER.debug( f"[{self._name}] STARTED" )
         task_self = asyncio.current_task()
         # noinspection PyBroadException
         try:
@@ -250,17 +250,18 @@ class IntegraEntity( object ):
         super().__init__()
 
 
-class IntegraError( Exception ):
+class IntegraError( BaseException ):
 
     def __str__(self) -> str:
         return self.message
 
-    def __init__( self ):
+    def __init__( self, message: str = "" ):
         super().__init__()
+        self._message: str = message
 
     @property
     def message(self) -> str:
-        raise NotImplementedError()
+        return self._message
 
 IntegraContextRefCntCommitCallback = Callable[ [ ], None ]
 

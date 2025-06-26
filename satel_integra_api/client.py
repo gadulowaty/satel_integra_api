@@ -617,7 +617,7 @@ class IntegraClient( IntegraEntity ):
     async def _async_connect_task( self, retries: int, timeout: float, conn_result: asyncio.Future ):
         task_self = asyncio.current_task()
         task_name = task_self.get_name()
-        task_err: Exception | None = None
+        task_err: BaseException | None = None
 
         _LOGGER.debug( f"[{task_name}]: STARTING (retries={retries}, timeout={timeout})" )
 
@@ -660,7 +660,7 @@ class IntegraClient( IntegraEntity ):
             if task_self.cancelling() != 0:
                 _LOGGER.debug( f"[{task_name}]: FINISHED (Cancelled)" )
                 conn_result.set_result( False )
-            elif retries == 0:
+            elif retries == 0 or task_err is not None:
                 _LOGGER.debug( f"[{task_name}]: FINISHED ({task_err if task_err is not None else 'Retries Exceeded'})" )
                 conn_result.set_result( False if task_err is None else task_err )
             else:
@@ -1023,7 +1023,7 @@ class IntegraClient( IntegraEntity ):
 
     # 0x7E READ: integra version
     async def async_read_integra_version( self ) -> IntegraCmdVersionData | None:
-        response: IntegraResponse = await self._async_send_command( IntegraCommand.READ_INTEGRA_VERSION )
+        response: IntegraResponse = await self._async_send_command( IntegraCommand.READ_INTEGRA_VERSION, bytes( [0x00] ) )
         if self._check_response( response ):
             return IntegraCmdVersionData.from_bytes( response.data )
         return None

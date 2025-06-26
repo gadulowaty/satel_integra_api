@@ -54,7 +54,7 @@ class IntegraMessage( IntegraEntity ):
         elif isinstance( self.data, bytes ):
             result += f"; Data({len( self.data )})=[ {IntegraHelper.hex_str( self.data )} ]"
         elif isinstance( self.data, bytearray ):
-            raise RuntimeError( "Invalid data type in IntegraMessage.", self )
+            raise IntegraError( "Invalid data type in IntegraMessage.", self )
 
         return result + " ]"
 
@@ -95,9 +95,9 @@ class IntegraRequest( IntegraMessage ):
             payload += self.data.to_bytes()
         elif data_type is bytes:
             payload += self.data
-            raise RuntimeError( "Invalid data type (bytes) in IntegraRequest.", self )
+            raise IntegraError( "Invalid data type (bytes) in IntegraRequest." )
         elif data_type is bytearray:
-            raise RuntimeError( "Invalid data type (bytearray) in IntegraRequest.", self )
+            raise IntegraError( "Invalid data type (bytearray) in IntegraRequest." )
 
         crc = IntegraHelper.checksum( payload )
         payload += bytes( [ (crc >> 8) & 0xff, crc & 0xff ] )

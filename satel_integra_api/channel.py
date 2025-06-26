@@ -10,6 +10,7 @@ from enum import IntEnum, StrEnum
 from typing import Any, Awaitable, Callable
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
+from const import DEFAULT_CODE_PAGE
 from .base import IntegraEntity, IntegraError
 from .const import (
     DEFAULT_CONN_TIMEOUT,
@@ -255,7 +256,7 @@ class IntegraChannel:
             data = decrypted_pdu[ 6: ]
             self._id_r = header[ 4 ]
             if (self._id_s & 0xFF) != decrypted_pdu[ 5 ]:
-                raise IntegraChannelError( self.channel.channel_id, IntegraChannelErrorCode.INVALID_ENCRYPTION_KEY, f"Incorrect value of ID_S, received 0x{decrypted_pdu[ 5 ]:02x}, expected 0x{self._id_s:02x}" )
+                raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.INVALID_ENCRYPTION_KEY, f"Incorrect value of ID_S, received 0x{decrypted_pdu[ 5 ]:02x}, expected 0x{self._id_s:02x}" )
             return bytes( data )
 
         async def _async_read_encrypted( self ) -> bytes:
@@ -263,7 +264,7 @@ class IntegraChannel:
             self._channel._stats.update_rx_enc_bytes()
             read_chunk = await self.channel._async_channel_read( 1 )
             if len( read_chunk ) == 0 or read_chunk[ 0 ] <= 0:
-                raise IntegraChannelError( self.channel.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
+                raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
 
             self._channel._stats.update_rx_enc_bytes( read_chunk[ 0 ] )
             pdu = await self.channel._async_channel_read( read_chunk[ 0 ] )
@@ -284,14 +285,16 @@ class IntegraChannel:
                 if source is None:
                     read_chunk = await self.channel._async_channel_read( 1 )
                     if len( read_chunk ) == 0:
-                        raise IntegraChannelError( self.channel.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
+                        if len( raw ) > 0 and raw[1:].decode(DEFAULT_CODE_PAGE).startswith("Busy"):
+                            raise IntegraChannelError(self.channel_id, IntegraChannelErrorCode.REMOTE_BUSY )
+                        raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
                     raw += read_chunk
                     read_byte = read_chunk[ 0 ]
                 else:
                     read_byte = source[ read_index ]
                     read_index += 1
                     if read_index > len( source ):
-                        raise IntegraChannelError( self.channel.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
+                        raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
 
                 if read_byte == FRAME_SYNC:
                     if in_message:
@@ -335,7 +338,7 @@ class IntegraChannel:
             buffer = await self._async_read_plain( decrypted )
 
             if IntegraHelper.debug_message( buffer[ 0 ], DEBUG_SHOW_RESPONSES_RAW ):
-                _LOGGER.debug( f"async_channel_read[{self.channel.channel_id}]: <<< {IntegraHelper.hex_str( buffer )}" )
+                _LOGGER.debug( f"async_channel_read[{self.channel_id}]: <<< {IntegraHelper.hex_str( buffer )}" )
 
             return IntegraResponse.from_bytes( buffer )
 
@@ -616,8 +619,9 @@ class IntegraChannel:
                 await self._async_do_event( IntegraChannelEvent.CONNECTED, None )
                 return True
 
-        except Exception as err:
+        except BaseException as err:
             _LOGGER.error( f"async_connect[{self.channel_id}] channel connect failed, {err}" )
+            await self._async_close( IntegraChannel.CloseSource.CONNECT )
             raise
 
         return False
