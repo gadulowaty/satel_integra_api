@@ -242,9 +242,9 @@ class IntegraChannel:
         def _write_data_with_pdu( self, data: bytes ) -> bytes:
             pdu = (
                     os.urandom( 2 ) +
-                    self._rolling_counter.to_bytes( 2, byteorder="big" ) +
-                    self._id_s.to_bytes( 1, byteorder="big" ) +
-                    self._id_r.to_bytes( 1, byteorder="big" )
+                    self._rolling_counter.to_bytes( 2, byteorder = "big" ) +
+                    self._id_s.to_bytes( 1, byteorder = "big" ) +
+                    self._id_r.to_bytes( 1, byteorder = "big" )
             )
             self._rolling_counter += 1
             self._rolling_counter &= 0xFFFF
@@ -271,7 +271,7 @@ class IntegraChannel:
             size: int = read_chunk[ 0 ]
             pdu = await self.channel._async_channel_read( size )
             if DEBUG_SHOW_RESPONSES_ENC:
-                _LOGGER.debug( f"_async_read_encrypted_request[{self.channel_id}]: <E< ({size}) [ {IntegraHelper.hex_str(pdu )} ]" )
+                _LOGGER.debug( f"_async_read_encrypted[{self.channel_id}]: <E< ({size}) [ {IntegraHelper.hex_str( pdu )} ]" )
             data = self._read_data_from_pdu( pdu )
 
             return data
@@ -288,8 +288,8 @@ class IntegraChannel:
                 if source is None:
                     read_chunk = await self.channel._async_channel_read( 1 )
                     if len( read_chunk ) == 0:
-                        if len( raw ) > 0 and raw[1:].decode(DEFAULT_CODE_PAGE).startswith("Busy"):
-                            raise IntegraChannelError(self.channel_id, IntegraChannelErrorCode.REMOTE_BUSY )
+                        if len( raw ) > 0 and raw[ 1: ].decode( DEFAULT_CODE_PAGE ).startswith( "Busy" ):
+                            raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_BUSY )
                         raise IntegraChannelError( self.channel_id, IntegraChannelErrorCode.REMOTE_CLOSED )
                     raw += read_chunk
                     read_byte = read_chunk[ 0 ]
@@ -350,12 +350,11 @@ class IntegraChannel:
 
             self._channel._stats.update_tx_bytes( len( data ) )
             if self._cipher is not None:
-                size = len( data )
                 data = self._write_data_with_pdu( data )
-                data = size.to_bytes( 1, "big" ) + data
+                data = (len( data )).to_bytes( 1, "big" ) + data
                 self._channel._stats.update_tx_enc_bytes( len( data ) )
                 if DEBUG_SHOW_REQUESTS_ENC:
-                    _LOGGER.debug( f"async_write[{self.channel_id}]: >E> ({size}) [ {IntegraHelper.hex_str(data)} ]" )
+                    _LOGGER.debug( f"async_write[{self.channel_id}]: >E> ({len( data )}) [ {IntegraHelper.hex_str( data )} ]" )
 
             return await self.channel._async_channel_write( data )
 
@@ -621,8 +620,8 @@ class IntegraChannel:
 
         try:
             if await self._async_channel_connect( timeout ):
-                self._read_task = self._eventloop.create_task( self._async_read_task(), name=IntegraChannel.CloseSource.READ_TASK.value )
-                self._ping_task = self._eventloop.create_task( self._async_ping_task(), name=IntegraChannel.CloseSource.PING_TASK.value )
+                self._read_task = self._eventloop.create_task( self._async_read_task(), name = IntegraChannel.CloseSource.READ_TASK.value )
+                self._ping_task = self._eventloop.create_task( self._async_ping_task(), name = IntegraChannel.CloseSource.PING_TASK.value )
                 await self._async_do_event( IntegraChannelEvent.CONNECTED, None )
                 return True
 
