@@ -10,7 +10,6 @@ from enum import IntEnum, StrEnum
 from typing import Any, Awaitable, Callable
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
-import const
 from .base import IntegraEntity, IntegraError
 from .const import (
     DEFAULT_CODE_PAGE,
@@ -19,9 +18,11 @@ from .const import (
     DEFAULT_RESP_TIMEOUT,
     DEBUG_SHOW_REQUESTS,
     DEBUG_SHOW_REQUESTS_RAW,
+    DEBUG_SHOW_REQUESTS_ENC,
     DEBUG_SHOW_RESPONSES,
     DEBUG_SHOW_RESPONSES_TIME,
     DEBUG_SHOW_RESPONSES_RAW,
+    DEBUG_SHOW_RESPONSES_ENC,
     FRAME_SYNC,
     FRAME_SYNC_ESC,
     FRAME_SYNC_END
@@ -270,7 +271,7 @@ class IntegraChannel:
             size: int = read_chunk[ 0 ]
             pdu = await self.channel._async_channel_read( size )
             read_chunk = await self.channel._async_channel_read( len(pdu) )
-            if const.DEBUG_SHOW_RESPONSES_ENC:
+            if DEBUG_SHOW_RESPONSES_ENC:
                 _LOGGER.debug( f"_async_read_encrypted_request[{self.channel_id}]: <E< ({size}) [ {IntegraHelper.hex_str(pdu )} ]" )
             data = self._read_data_from_pdu( pdu )
 
